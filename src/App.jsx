@@ -1,14 +1,29 @@
-import './App.css'
+// src/App.jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
+import AdminLayout from './layout/AdminLayout';
+import Login from './views/Login';
+import Dashboard from './views/Dashboard';
 
-function App() {
-
+const App = () => {
   return (
-    <>
-    <div>
-      <p> This is It </p>
-    </div>
-    </>
-  )
-}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Dashboard />} />
+          {/* Add more nested admin routes here */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
