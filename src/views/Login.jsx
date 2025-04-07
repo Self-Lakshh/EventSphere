@@ -36,36 +36,73 @@ const Login = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Paper elevation={3} sx={{ padding: 4, mt: 10 }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Admin Login
-        </Typography>
-        <Box component="form" onSubmit={handleLogin} noValidate sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-          <TextField
-            type="email"
-            label="Email"
-            variant="outlined"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            fullWidth
-          />
-          <TextField
-            type="password"
-            label="Password"
-            variant="outlined"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-            fullWidth
-          />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            Login
-          </Button>
-        </Box>
-      </Paper>
-    </Container>
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundImage: 'url("./assets/main_bg.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <Container maxWidth="xs"> {/* Reduced width */}
+        <Paper
+          elevation={3}
+          sx={{
+            padding: 4,
+            backgroundColor: 'rgba(255, 255, 255, 0.2)', 
+            backdropFilter: 'blur(10px)', 
+            borderRadius: 2,
+            boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)', 
+            border: '1px solid rgba(255, 255, 255, 0.3)', 
+          }}
+        >
+          <Typography variant="h4" align="center" gutterBottom>
+            Admin Login
+          </Typography>
+          <Box
+            component="form"
+            onSubmit={handleLogin}
+            noValidate
+            sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
+          >
+            <TextField
+              type="email"
+              label="Email"
+              variant="outlined"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              fullWidth
+            />
+            <TextField
+              type="password"
+              label="Password"
+              variant="outlined"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              fullWidth
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              fullWidth
+              sx={{
+                backgroundColor: 'var(--btn-color)', 
+                '&:hover': {
+                  backgroundColor: 'var(--btn-hover-color)', 
+                },
+              }}
+            >
+              Login
+            </Button>
+          </Box>
+        </Paper>
+      </Container>
+    </Box>
   );
 };
 

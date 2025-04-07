@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #F8F9FA;
+  --secondary-bg-color: #EAE8E4;
+
+  --text-color: #181B1E; 
+  --light-text-color: #F8F9FA; 
+
+  --btn-color: #E96A32;
+  --btn-hover-color: #F13B09;
+
+  --secondary-btn-color: #17196D;
+  --secondary-btn-hover-color: #0A0C63;
+
+  --font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color) !important;
+  font-family: var(--font-family) !important;
+}
+
+button {
+  background-color: var(--btn-color);
+  color: var(--light-text-color);
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button::hover {
+  background-color: var(--btn-hover-color);
+}
