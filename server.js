@@ -1,9 +1,17 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors"); // <-- Add this line
 const apiRoutes = require("./routes");
 const mysqlConfig = require("./config/db");
 
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Middleware to parse request body
 app.use(express.json()); // for JSON body
@@ -40,7 +48,7 @@ process.on("uncaughtException", (err) => {
 
 process.on("unhandledRejection", (reason, promise) => {
   console.error("Unhandled Rejection at:", promise, "reason:", reason);
-  process.exit(1); // optional but recommended in production
+  process.exit(1);
 });
 
 // Start the server
