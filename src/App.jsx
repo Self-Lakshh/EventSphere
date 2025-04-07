@@ -1,9 +1,11 @@
-// src/App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
 import AdminLayout from './layout/AdminLayout';
 import Login from './views/Login';
 import Dashboard from './views/Dashboard';
+import Users from './views/Users';
+import Events from './views/Events';
+import Forms from './views/Forms';
 
 const App = () => {
   return (
@@ -19,7 +21,9 @@ const App = () => {
           }
         >
           <Route index element={<Dashboard />} />
-          {/* Add more nested admin routes here */}
+          <Route path="users" element={<Users />} />
+          <Route path="events" element={<Events />} />
+          <Route path="forms" element={<Forms />} />
         </Route>
       </Routes>
     </BrowserRouter>
